@@ -1,15 +1,30 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
+  font-weight: 700;
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+a.navbar-brand:hover {
+  transform: scale(1.2, 1.2);
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 /* Provide sufficient contrast against white background */
 a {
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   color: #0366d6;
+}
+
+a:hover {
+  transform: scale(1.2, 1.2);
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .btn-primary {
@@ -29,19 +44,9 @@ a {
 -------------------------------------------------- */
 html,
 body {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+  font-size: 16px;
+  font-family: "Quicksand", sans-serif;
+  background-color: #013261;
 }
 
 .box-shadow {
@@ -70,4 +75,85 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+.navbar {
+  background: linear-gradient(to bottom, #013d75, #013261, #012241);
+}
+
+.movie-index,
+.main {
+  background-color: #013261;
+  padding-bottom: 20px;
+}
+
+.footer {
+  background: linear-gradient(to top, #013d75, #013261, #012241);
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-item {
+  width: 22.5%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  background-color: #004b90;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.movie-item-image {
+  width: 100%;
+  height: auto;
+  max-height: 450px;
+}
+
+.movie-item-image img {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.movie-item-title {
+  padding: 5px 0;
+  font-weight: 700;
+  width: 100%;
+  background-color: whitesmoke;
+  color: black;
+  border-top: 5px solid black;
+}
+
+@media screen and (max-width: 875px) {
+  html {
+    font-size: 14px;
+  }
+
+  a.navbar-brand,
+  a.navbar-brand:hover,
+  a,
+  a:hover {
+    transition: 1s !important;
+  }
+
+  .movie-item {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .movie-item {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .movie-item {
+    width: 90%;
+  }
 }

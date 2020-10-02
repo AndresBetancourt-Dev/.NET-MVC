@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+<div class="movie-index text-light container-fluid w-100 h-100">
 <h1>Index</h1>
 
 <p>
@@ -21,57 +21,48 @@
     </p>
 </form>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-               @Html.DisplayNameFor(model => model.Movies[0].Title)
-            </th>
-            <th>
-                 @Html.DisplayNameFor(model => model.Movies[0].ReleaseDate)
-            </th>
-            <th>
-               @Html.DisplayNameFor(model => model.Movies[0].Genre)
-            </th>
-            <th>
-                  @Html.DisplayNameFor(model => model.Movies[0].Price)
-            </th>
-            <th>
-            @Html.DisplayNameFor(model => model.Movies[0].Rating)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Movies[0].ImageUrl)
-        </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
- @foreach (var item in Model.Movies) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
+<div class="movie-list">
+
+    
+@foreach (var item in Model.Movies) {
+
+        <div class="movie-item">
+            <div class="movie-item-image">
+<img src="@Html.DisplayFor(modelItem => item.ImageUrl)" alt="@Html.DisplayFor(modelItem => item.Title)">
+            </div>
+            <div class="movie-item-title">
+@Html.DisplayFor(modelItem => item.Title)
+            </div>
+            <div class="movie-item-release">
+                Release Date : 
+@Html.DisplayFor(modelItem => item.ReleaseDate)
+            </div>
+            <div class="movie-item-genre">
+ @Html.DisplayFor(modelItem => item.Genre)
+            </div>
+            <div class="movie-item-price">
+ @Html.DisplayFor(modelItem => item.Price)
+            </div>
+            <div class="movie-item-rating">
             @Html.DisplayFor(modelItem => item.Rating)
-        </td>
-        <td>
-         <a href="@Html.DisplayFor(modelItem => item.ImageUrl)">Imagen</a>  
-        </td>
-            <td>
+        </div>
+        <div class="movie-item-actions">
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+            </div>
+        </div>
+        
+           
+            
+            
+        
+            
+            
+       
 }
-    </tbody>
-</table>
+</div>
+ 
+  
+
+</div>
